@@ -4,9 +4,25 @@ A Leiningen template for a minimal WAMP WebSocket server with HTTP Kit and clj-w
 
 ## Usage
 
+Create a new clj-wamp project with leiningen:
+
 ```bash
 % lein new clj-wamp my-project-name
+% cd my-project-name
+% lein run
 ```
+...and open browser to (http://localhost:8080).
+
+## Development
+
+One-time setup:
+1. Clone this repo
+2. Add the following to your `~/.lein/profiles.clj` user plugins: `[clj-wamp/lein-template "0.1.0-SNAPSHOT"]`.
+
+Test/Dev cycle:
+1. Run `lein install`
+2. In a temp directory, run `lein new clj-wamp testcljwamp`
+3. Try running the new project: `lein run`
 
 ## Thanks to
 

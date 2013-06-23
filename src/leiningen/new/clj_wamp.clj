@@ -21,4 +21,7 @@
       ["src/{{sanitized-ns}}/websocket.clj" (render "websocket.clj" data)]
       ["src/{{sanitized-ns}}/routes.clj"    (render "routes.clj" data)]
       ["src/{{sanitized-ns}}/main.clj"      (render "main.clj" data)]
-      ["resources/public/index.html"        (render "public/index.html" data)])))
+      ["src/{{sanitized-ns}}/config.clj"    (render "config.clj" data)]
+      ["resources/public/index.html"        (render "public/index.html" data)]
+      ["resources-dev/config.clj"           (binary "resources_dev/config.clj")]
+      ["resources-dev/log4j.properties"     (binary "resources_dev/log4j.properties")])))
