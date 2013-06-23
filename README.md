@@ -11,20 +11,20 @@ Create a new clj-wamp project with leiningen:
 % cd my-project-name
 % lein run
 ```
-...and open browser to (http://localhost:8080).
+...and open browser to [localhost:8080](http://localhost:8080)
 
 ## Development
 
 One-time setup:
-1. Clone this repo
-2. Add the following to your `~/.lein/profiles.clj` user plugins: `[clj-wamp/lein-template "0.1.0-SNAPSHOT"]`.
+ 1. Clone this repo
+ 2. Add the following to your `~/.lein/profiles.clj` user plugins: `[clj-wamp/lein-template "0.1.0-SNAPSHOT"]`
 
 Test/Dev cycle:
-1. Run `lein install`
-2. In a temp directory, run `lein new clj-wamp testcljwamp`
-3. Try running the new project: `lein run`
+ 1. Run `lein install`
+ 2. In a temp directory, run `lein new clj-wamp testcljwamp`
+ 3. Try running the new project: `lein run`
 
-## Thanks to
+## Thanks
 
 Template code is based off of [HTTP Kit's lein template](https://github.com/http-kit/lein-template).
 
