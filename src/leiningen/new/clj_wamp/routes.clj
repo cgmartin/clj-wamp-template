@@ -7,6 +7,14 @@
   (:require [compojure.route :as route]
             [clojure.tools.logging :as log]))
 
+;; define mapping here
+(defroutes server-routes*
+  (GET "/ws" [:as req] (wamp-handler req))
+  ;; static files under ./resources/public folder
+  (route/resources "/")
+  ;; 404, modify for a better 404 page
+  (route/not-found "<p>Page not found.</p>"))
+
 (defn wrap-failsafe [handler]
   (fn [req]
     (try (handler req)
@@ -22,14 +30,6 @@
     (handler
       (update-in req [:uri]
         #(if (= "/" %) "/index.html" %)))))
-
-;; define mapping here
-(defroutes server-routes*
-  (GET "/ws" [:as req] (wamp-handler req))
-  ;; static files under ./resources/public folder
-  (route/resources "/")
-  ;; 404, modify for a better 404 page
-  (route/not-found "<p>Page not found.</p>"))
 
 (defn app [] (-> #'server-routes*
               wrap-session
