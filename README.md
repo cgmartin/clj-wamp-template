@@ -17,7 +17,7 @@ Create a new clj-wamp project with leiningen:
 
 One-time setup:
  1. Clone this repo
- 2. Add the following to your `~/.lein/profiles.clj` user plugins: `[clj-wamp/lein-template "0.1.0-SNAPSHOT"]`
+ 2. Add the following to your `~/.lein/profiles.clj` user plugins: `[clj-wamp/lein-template "0.1.0"]`
 
 Test/Dev cycle:
  1. Run `lein install`
