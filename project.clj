@@ -1,4 +1,4 @@
-(defproject clj-wamp/lein-template "0.1.1"
+(defproject clj-wamp/lein-template "0.1.2"
   :description "clj-wamp starter project template"
   :url "http://github.com/cgmartin/clj-wamp-template"
   :license {:name "Eclipse Public License"
