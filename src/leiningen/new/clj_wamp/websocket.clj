@@ -23,7 +23,8 @@
   (log/info "WAMP publish:" sess-id topic event exclude include))
 
 (defn- on-before-call [sess-id topic call-id call-params]
-  (log/info "WAMP call:" sess-id topic call-id call-params))
+  (log/info "WAMP call:" sess-id topic call-id call-params)
+  [sess-id topic call-id call-params])
 
 (defn wamp-handler
   "Returns a http-kit websocket handler with wamp subprotocol"
