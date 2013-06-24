@@ -13,6 +13,26 @@ Create a new clj-wamp project with leiningen:
 ```
 ...and open browser to [localhost:8080](http://localhost:8080)
 
+## Project Structure
+
+```
+wamptutorial
+├── README.md
+├── project.clj
+├── resources
+│   └── public
+│       └── index.html
+├── resources-dev
+│   ├── config.clj
+│   └── log4j.properties
+└── src
+    └── wamptutorial
+        ├── config.clj
+        ├── main.clj
+        ├── routes.clj
+        └── websocket.clj
+```
+
 ## Development
 
 One-time setup:

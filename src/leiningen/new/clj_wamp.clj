@@ -11,9 +11,10 @@
 (defn clj-wamp
   "FIXME: write documentation"
   [name]
-  (let [data {:name         name
+  (let [fs-path (name-to-path name)
+        data {:name         name
               :year         (year)
-              :fs-path      (name-to-path name)
+              :fs-path      fs-path
               :sanitized-ns (sanitize-ns name)}]
     (->files data
       ["README.md"                       (render "README.md" data)]
@@ -24,4 +25,5 @@
       ["src/{{sanitized-ns}}/config.clj"    (render "config.clj" data)]
       ["resources/public/index.html"        (render "public/index.html" data)]
       ["resources-dev/config.clj"           (binary "resources_dev/config.clj")]
-      ["resources-dev/log4j.properties"     (binary "resources_dev/log4j.properties")])))
+      ["resources-dev/log4j.properties"     (binary "resources_dev/log4j.properties")])
+    (println "Created new clj-wamp project:" fs-path)))
