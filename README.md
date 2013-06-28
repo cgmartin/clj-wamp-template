@@ -1,6 +1,8 @@
 # clj-wamp
 
-A Leiningen template for a minimal WAMP WebSocket server with HTTP Kit and clj-wamp.
+A Leiningen template for a minimal WAMP WebSocket server with
+[HTTP Kit](https://github.com/http-kit/http-kit)
+and [clj-wamp](https://github.com/cgmartin/clj-wamp).
 
 ## Usage
 
