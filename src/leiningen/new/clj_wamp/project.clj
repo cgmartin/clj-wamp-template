@@ -14,5 +14,5 @@
                  [compojure "1.1.5"]
                  [ring-server "0.2.8"]
                  [http-kit "2.1.2"]
-                 [clj-wamp "1.0.0-beta1"]]
+                 [clj-wamp "1.0.0-beta2"]]
   :profiles {:dev {:resource-paths ["resources-dev"]}})
