@@ -12,7 +12,7 @@
     <div class="container">
         <h1>clj-wamp example</h1>
 
-        <p>Open your console to watch the WebSocket events being sent and received.</p>
+        <p>Open your console to watch the WebSocket event traffic.</p>
 
         <p class="row">
             <button id="chat-btn" class="btn btn-large span6">PubSub: Chat message</button>
@@ -22,6 +22,9 @@
         </p>
         <p class="row">
             <button id="throw-btn" class="btn btn-large span6">RPC: Throw error</button>
+        </p>
+        <p class="row">
+            <button id="ping-btn" class="btn btn-large span6">RPC: Ping (Not Authorized)</button>
         </p>
     </div>
 
@@ -39,9 +42,30 @@
         function (session) {
             sess = session;
             console.log("Connected to " + WS_URI, sess.sessionid());
-            sess.prefix("event", BASE_TOPIC_URI + "event#"); // Add CURI prefixes
-            sess.prefix("rpc",   BASE_TOPIC_URI + "rpc#");
-            sess.subscribe("event:chat", onChatEvent);       // Subscribe to chat channel
+
+            // Authenticate
+            var username = 'guest';
+            var password = 'secret-password';
+
+            // send authreq rpc call
+            sess.authreq(username).then(
+                function (challenge) {
+                    console.log("Received auth challenge", challenge);
+                    var signature = sess.authsign(password, challenge);
+
+                    // send auth rpc call
+                    sess.auth(signature).then(function(permissions) {
+                        console.log("Authentication complete", permissions);
+
+                        // Add CURI prefixes and Subscribe to chat channel
+                        sess.prefix("event", BASE_TOPIC_URI + "event#");
+                        sess.prefix("rpc",   BASE_TOPIC_URI + "rpc#");
+                        sess.subscribe("event:chat", onChatEvent);
+                    },
+                    function() { console.log("Authentication failed"); });
+                },
+                function() { console.log("AuthRequest failed"); });
+
         },
         // Disconnection callback
         function (code, reason) {
@@ -77,6 +101,14 @@
             function (res) { console.log("rpc:throw RECEIVED error", res); }
         );
         console.log("rpc:throw SENT");
+    });
+
+    $('#ping-btn').click(function() {
+        sess.call("rpc:ping").then(
+            function (res) { console.log("rpc:ping RECEIVED success", res); },
+            function (res) { console.log("rpc:ping RECEIVED error", res); }
+        );
+        console.log("rpc:ping SENT");
     });
 
 </script>
