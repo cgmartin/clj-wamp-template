@@ -13,6 +13,6 @@
                                               com.sun.jmx/jmxri]]
                  [compojure "1.1.5"]
                  [ring-server "0.2.8"]
-                 [http-kit "2.1.2"]
-                 [clj-wamp "1.0.0-beta3"]]
+                 [http-kit "2.1.5"]
+                 [clj-wamp "1.0.0-rc1"]]
   :profiles {:dev {:resource-paths ["resources-dev"]}})
