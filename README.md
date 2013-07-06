@@ -39,7 +39,7 @@ wamptutorial
 
 One-time setup:
  1. Clone this repo
- 2. Add the following to your `~/.lein/profiles.clj` user plugins: `[clj-wamp/lein-template "0.1.5"]`
+ 2. Add the following to your `~/.lein/profiles.clj` user plugins: `[clj-wamp/lein-template "0.1.6"]`
 
 Test/Dev cycle:
  1. Run `lein install`
