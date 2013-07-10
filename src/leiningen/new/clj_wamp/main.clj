@@ -1,11 +1,11 @@
 (ns {{sanitized-ns}}.main
   (:gen-class)
   (:use [clojure.tools.logging :only [info]]
-       [clojure.tools.cli :only [cli]]
-       [org.httpkit.server :only [run-server]]
-       [ring.middleware.reload :only [wrap-reload]]
-       [{{sanitized-ns}}.config :only [reset-conf!]]
-       [{{sanitized-ns}}.routes :only [app]]))
+        [clojure.tools.cli :only [cli]]
+        [org.httpkit.server :only [run-server]]
+        [ring.middleware.reload :only [wrap-reload]]
+        [{{sanitized-ns}}.config :only [reset-conf!]]
+        [{{sanitized-ns}}.routes :only [app]]))
 
 (defn- to-int [s] (Integer/parseInt s))
 
